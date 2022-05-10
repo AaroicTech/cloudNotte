@@ -184,12 +184,10 @@ class _CloudNotteHomePageState extends State<CloudNotteHomePage> {
                         _title.text.trim(),
                         _link.text.trim(),
                         _topic.text.trim(),
-                        _description.text.trim());
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('sucessfully added'),
-                      ),
-                    );
+                        context,
+                       _description.text.trim(),
+                        );
+                    
                   }
                 }
               },
