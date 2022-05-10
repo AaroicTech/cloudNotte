@@ -1,44 +1,47 @@
 import 'package:flutter/material.dart';
 
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
-
-  @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
-}
-
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  String dropdownValue =   'Select Subject';
-
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      value: dropdownValue,
-      icon: const Icon(Icons.arrow_downward),
-      elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
-      underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
-      ),
-      onChanged: (String? newValue) {
-        setState(() {
-          dropdownValue = newValue!;
-        });
-      },
-      items: <String>[
-          'Select Subject',
+//number of players
+Widget droupDown({
+  BuildContext? context,
+  Function(String)? onChanged,
+  String? dropdownValue,
+  List? items,
+  double? height,
+  String? hint,
+  String? path = '',
+  double? borderRadius,
+  bool disable = false,
+  Color? bgColor,
+  Color? textColor,
+}) {
+  return DropdownButton<String>(
+    isExpanded: true,
+    value: dropdownValue,
+    hint: const Text("Select number of players"),
+    icon: Icon(
+      Icons.people,
+      size: 40,
+     // color: indigo,
+    ),
+    elevation: 16,
+    style: const TextStyle(color: Colors.deepPurple),
+    underline: Container(),
+    onChanged: (value) => onChanged!(value!),
+    items: <String>[
+      'Select Subject',
         'Physics',
         'Chemistry',
         'Maths',
         'Biology',
         'Earthscience',
-      ].map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
-    );
-  }
+    ].map<DropdownMenuItem<String>>((String value) {
+      return DropdownMenuItem<String>(
+        value: value,
+        child: Text(
+          value,
+         // style: textStyle0,
+        ),
+      );
+    }).toList(),
+  );
 }

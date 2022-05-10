@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:passing_datas/firebase_vitual/db.dart';
+import 'package:passing_datas/style/font.dart';
 
 class CloudNotteHomePage extends StatefulWidget {
   const CloudNotteHomePage({
@@ -45,7 +45,6 @@ class _CloudNotteHomePageState extends State<CloudNotteHomePage> {
                         border: Border.all(),
                       ),
                       child: Container(
-                        // child:DropdownButton(items: ),
                         child: DropdownButton<String>(
                           isExpanded: true,
                           value: dropdownValue,
@@ -89,6 +88,7 @@ class _CloudNotteHomePageState extends State<CloudNotteHomePage> {
                           if (value!.isEmpty) {
                             return 'field is emty';
                           }
+                          return null;
                         },
                         decoration: const InputDecoration(
                           hintText: 'Topic',
@@ -109,6 +109,7 @@ class _CloudNotteHomePageState extends State<CloudNotteHomePage> {
                           if (value!.isEmpty) {
                             return 'field is emty';
                           }
+                          return null;
                         },
                         decoration: const InputDecoration(
                           hintText: 'Title',
@@ -132,6 +133,7 @@ class _CloudNotteHomePageState extends State<CloudNotteHomePage> {
                           if (value!.isEmpty) {
                             return 'field is emty';
                           }
+                          return null;
                         },
                         decoration: const InputDecoration(
                           hintText: 'Description',
@@ -155,6 +157,7 @@ class _CloudNotteHomePageState extends State<CloudNotteHomePage> {
                           if (value!.isEmpty) {
                             return 'field is emty';
                           }
+                          return null;
                         },
                         decoration: const InputDecoration(
                           hintText: 'Links',
@@ -171,7 +174,7 @@ class _CloudNotteHomePageState extends State<CloudNotteHomePage> {
                 if (_key.currentState!.validate()) {
                   if (dropdownValue == "Select Subject") {
                     ScaffoldMessenger.of(context).showSnackBar(
-                    const  SnackBar(
+                      const SnackBar(
                         content: Text('please select a subject'),
                       ),
                     );
@@ -183,16 +186,12 @@ class _CloudNotteHomePageState extends State<CloudNotteHomePage> {
                         _topic.text.trim(),
                         _description.text.trim());
                     ScaffoldMessenger.of(context).showSnackBar(
-                    const  SnackBar(
+                      const SnackBar(
                         content: Text('sucessfully added'),
                       ),
                     );
-                    
                   }
-                
-                  
                 }
-            
               },
               child: Container(
                 height: 40,
@@ -202,17 +201,10 @@ class _CloudNotteHomePageState extends State<CloudNotteHomePage> {
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: Center(
-                  child: Text(
-                    'save',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
+                  child: Text('save', style: save),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

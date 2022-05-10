@@ -1,7 +1,8 @@
-
 import 'package:flutter/material.dart';
+import 'colors.dart';
 
-// style = textStyle{
-  
-// }
-
+final save = TextStyle(
+  color: white,
+  fontWeight: FontWeight.w900,
+  fontSize: 18,
+);
